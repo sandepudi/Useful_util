@@ -1,3 +1,5 @@
+#on terminal - To split a csv file into small chunks with 100K each and keeping the header in each part
+
 tail -n +2 simility_sp_data_eids5_sorted.csv | split -l 1000000 - split_eid_file5_
 for file in split_eid_file5_*
 do
