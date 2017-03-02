@@ -1,0 +1,8 @@
+tail -n +2 simility_sp_data_eids5_sorted.csv | split -l 1000000 - split_eid_file5_
+for file in split_eid_file5_*
+do
+    head -n 1 simility_sp_data_eids5_sorted.csv > tmp_file
+    cat $file >> tmp_file
+    mv -f tmp_file $file
+    rm tmp_file
+done
