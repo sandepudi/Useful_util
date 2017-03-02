@@ -8,3 +8,6 @@ do
     mv -f tmp_file $file
     rm tmp_file
 done
+
+#replace all instance of " in a file using sed 's/pattern/replacement/flag' file > newfile
+sed 's/"//g' split_eid_file6_ai > split_eid_file6_a9
