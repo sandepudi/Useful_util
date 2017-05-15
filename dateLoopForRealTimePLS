@@ -1,0 +1,17 @@
+#!/bin/bash
+currentDateTs=$(date -j -f "%Y-%m-%d" $1 "+%s")
+endDateTs=$(date -j -f "%Y-%m-%d" $2 "+%s")
+offset=7*86400
+
+while [ "$currentDateTs" -le "$endDateTs" ]
+do
+        date=$(date -j -f "%s" $currentDateTs "+%Y-%m-%d")
+        p1='/opt/simility/include/jdk/bin/java -Xmx6g -cp /opt/demotool/vishesh-async-1.0-jar-with-dependencies.jar -Dconfig=file:/opt/demotool/demotool.properties -Dpipeline.simulator.appPrefix=homeadvisor -Dpipeline.simulator.entityName=servicepro_week -Dpipeline.simulator.targetFilePath="/tmp/homeadvisor/wk_status_3'
+        p3='_data.json" -Dpipeline.simulator.csvFilePath="/tmp/homeadvisor/perf_'
+        p5='data.csv" -Dpipeline.simulator.loginUser="homeadvisor.ritesh@simility.com" -Dpipeline.simulator.loginPassword="4223Didi" -Dpipeline.simulator.webappUrl="https://poc-3.simility.com" -Dpipeline.simulator.ingressQps=100 -Dpipeline.simulator.inputParams="" -Dsupport.email= com.kumbay.async.Main PipelineSimulationJob run_inline > /opt/demotool/pipeline_simulator_logs/wk_status_3'
+        p7='_data.log &'
+        pall=$p1$date$p3$date$p5$date$p7
+        echo $pall
+        echo sleep 90m
+        currentDateTs=$(($currentDateTs+$offset))
+done
