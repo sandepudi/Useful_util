@@ -13,7 +13,7 @@ done
 sed 's/"//g' split_eid_file6_ai > split_eid_file6_a9
 
 
-####Merge csvs without repeating header
+######Merge csvs without repeating header
 #!/bin/bash
 OutFileName="merged.csv"                       # Fix the output name
 i=0                                       # Reset a counter
@@ -29,5 +29,10 @@ for filename in ./*.csv; do
 done
 
 
-#remove empty lines from a file
+#######remove empty lines from a file
 grep -v '^$' file_to_fixed > fixed.csv
+
+##print the lines in number from 'input' file to 'output' file e.g. line 1 to 5 will be printed in output
+ for number in 1 2 3 4 5 ; do
+     sed -n  "${number}{p;q;}" <input> >> <output>
+ done
