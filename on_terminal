@@ -36,3 +36,12 @@ grep -v '^$' file_to_fixed > fixed.csv
  for number in 1 2 3 4 5 ; do
      sed -n  "${number}{p;q;}" <input> >> <output>
  done
+
+#### To unzip zip files in various directories
+#!/bin/bash
+for i in ./*/
+do
+        cd "$i";
+        gzip -d *.gz;
+        cd ../;
+done
