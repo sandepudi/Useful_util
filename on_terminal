@@ -45,3 +45,14 @@ do
         gzip -d *.gz;
         cd ../;
 done
+
+## To add extension to files
+#to check how the files will be renamed
+#check all the files which don't end with .csv and rename it with .csv
+find -type f -not -name '*.csv' -exec rename -n 's/$/.csv/' {} +
+
+
+# to actually change it
+find -type f -not -name '*.csv' -exec rename 's/$/.csv/' {} +
+
+
