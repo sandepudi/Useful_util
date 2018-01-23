@@ -55,4 +55,5 @@ find -type f -not -name '*.csv' -exec rename -n 's/$/.csv/' {} +
 # to actually change it
 find -type f -not -name '*.csv' -exec rename 's/$/.csv/' {} +
 
-
+# to get the size of the files inside the folders, aggregate it and sho in human readable form
+du --max-depth=1 -h
